@@ -990,10 +990,34 @@
       color: rgba(255,255,255,0.55);
     }
 
+    .app-evolution {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      background: rgba(0,180,166,0.07);
+      border: 1px solid rgba(0,180,166,0.2);
+      border-radius: 16px;
+      padding: 28px 32px;
+      margin-top: 20px;
+    }
+    .evo-icon { font-size: 2rem; flex-shrink: 0; }
+    .app-evolution h4 {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--teal);
+      margin-bottom: 8px;
+    }
+    .app-evolution p {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.8;
+    }
+
     @media (max-width: 900px) {
       .app-hero { grid-template-columns: 1fr; gap: 36px; }
       .app-features { grid-template-columns: 1fr; }
       .app-cta-banner { flex-direction: column; text-align: center; }
+      .app-evolution { flex-direction: column; }
     }
 
     /* ─── PRICING ─── */
@@ -1774,13 +1798,27 @@
 
     <div class="app-cta-banner fi">
       <div>
-        <h3>ユーザーの声で育てるアプリ</h3>
+        <h3>受講者の声で、毎月アップデート</h3>
         <p>
-          現在開発中。カウンセリング参加者はベータ版を無料で先行体験でき、
-          機能へのフィードバックが直接開発に反映されます。
+          アプリもコミュニティも、受講者の意見を取り入れてクイックに進化し続けます。
+          「こんな機能が欲しい」「この部分が使いにくい」——あなたのフィードバックが
+          翌月のアップデートに直接反映される、一緒に作るサービスです。
         </p>
       </div>
       <a href="#counseling" class="btn-primary">無料カウンセリングを申し込む →</a>
+    </div>
+
+    <!-- Evolution message -->
+    <div class="app-evolution fi">
+      <div class="evo-icon">🔄</div>
+      <div>
+        <h4>静的なサービスではなく、生きているサービス</h4>
+        <p>
+          コーチングサービスのカリキュラムは「固定」されています。2年前の教材を今も使い続けているサービスは珍しくありません。
+          ENGREALは受講者との対話を通じてアプリの機能・学習メソッド・コミュニティの仕組みを継続的にアップデート。
+          英語学習のトレンドや受講者のリアルな声に合わせ、常に最適な形に進化し続けます。
+        </p>
+      </div>
     </div>
   </div>
 </section>
@@ -1850,10 +1888,10 @@
         <h3>ユーザーの声で育てるアプリ</h3>
         <p>
           「このメソッドを実行するアプリがあれば……」という声から開発開始。
-          みなさんの声を継続的に収集しながら改善し続ける、
+          受講者の意見を取り入れてクイックに進化し続ける、
           英語学習者のために英語学習者が育てるアプリです。
         </p>
-        <span class="pillar-tag">ベータ版開発中</span>
+        <span class="pillar-tag">ベータ版開発中・毎月更新</span>
       </div>
       <div class="pillar p3 fi fi-d3">
         <div class="pillar-top"></div>
@@ -1862,10 +1900,10 @@
         <h3>英語学習者コミュニティ</h3>
         <p>
           同じ目標を持つ仲間と繋がれる場所。おすすめ学習法のシェア、
-          進捗報告、スピーキング練習——一人じゃないから続けられる仕組みを作ります。
+          進捗報告、スピーキング練習——受講者の声を反映しながら仕組みを進化させ続けます。
           「継続モチベーション」を解決するのがこのコミュニティです。
         </p>
-        <span class="pillar-tag">コミュニティ形成中</span>
+        <span class="pillar-tag">参加者の声で進化中</span>
       </div>
     </div>
   </div>
