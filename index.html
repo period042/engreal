@@ -2344,50 +2344,71 @@
     <div class="counsel-form-wrap fi" id="counseling-form">
       <h3>カウンセリング申し込みフォーム</h3>
       <p>以下の情報をお送りいただければ、1〜2営業日以内に日時調整のご連絡をします。</p>
-      <form class="counsel-form" onsubmit="handleCounselSubmit(event)">
+
+      <!-- Google Forms に送信。target=hidden_iframe でページ遷移なし -->
+      <form
+        class="counsel-form"
+        action="https://docs.google.com/forms/d/e/1FAIpQLSf2IlSqGDj7CsFewR_bYT3loEhAzsAxVgiuNnhjLW8OGgtSEw/formResponse"
+        method="POST"
+        target="hidden_iframe"
+        onsubmit="showCounselSuccess(this)"
+      >
         <div class="form-row">
           <div class="form-group">
             <label>お名前 <span class="req">必須</span></label>
-            <input type="text" placeholder="山田 太郎" required />
+            <input type="text" name="entry.367006765" placeholder="山田 太郎" required />
           </div>
           <div class="form-group">
             <label>メールアドレス <span class="req">必須</span></label>
-            <input type="email" placeholder="your@email.com" required />
+            <input type="email" name="entry.1356469061" placeholder="your@email.com" required />
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
             <label>英語学習歴</label>
-            <select>
+            <select name="entry.1694175306">
               <option value="">選択してください</option>
-              <option>はじめて（ほぼ未経験）</option>
-              <option>1年未満</option>
-              <option>1〜3年</option>
-              <option>3〜5年</option>
-              <option>5年以上</option>
+              <option value="はじめて">はじめて（ほぼ未経験）</option>
+              <option value="1年未満">1年未満</option>
+              <option value="1〜3年">1〜3年</option>
+              <option value="3〜5年">3〜5年</option>
+              <option value="5年以上">5年以上</option>
             </select>
           </div>
           <div class="form-group">
             <label>英語学習の主な目的</label>
-            <select>
+            <select name="entry.2061469388">
               <option value="">選択してください</option>
-              <option>日常英会話を話せるようになりたい</option>
-              <option>仕事で英語を使えるようにしたい</option>
-              <option>TOEIC・英検のスコアを上げたい</option>
-              <option>海外移住・留学を考えている</option>
-              <option>その他</option>
+              <option value="日常英会話">日常英会話を話せるようになりたい</option>
+              <option value="ビジネス英語">仕事で英語を使えるようにしたい</option>
+              <option value="TOEIC・英検">TOEIC・英検のスコアを上げたい</option>
+              <option value="海外移住・留学">海外移住・留学を考えている</option>
+              <option value="その他">その他</option>
             </select>
           </div>
         </div>
         <div class="form-group full">
           <label>現在の悩みや質問（任意）</label>
-          <textarea rows="3" placeholder="例：コーチングサービスを検討しているが本当に効果があるのかわからない。今のオンライン英会話を続けるべきか迷っている、など"></textarea>
+          <textarea name="entry.1465552756" rows="3" placeholder="例：コーチングサービスを検討しているが本当に効果があるのかわからない。今のオンライン英会話を続けるべきか迷っている、など"></textarea>
         </div>
         <button type="submit" class="btn-primary" style="width:100%;justify-content:center;font-size:1.05rem;padding:18px;">
           無料カウンセリングを申し込む →
         </button>
       </form>
+
+      <!-- 送信完了メッセージ（初期は非表示） -->
+      <div id="counsel-success" style="display:none;text-align:center;padding:40px 20px;">
+        <div style="font-size:3rem;margin-bottom:16px;">✅</div>
+        <h3 style="font-size:1.3rem;font-weight:900;margin-bottom:12px;">お申し込みありがとうございます！</h3>
+        <p style="color:var(--gray);line-height:1.8;">
+          1〜2営業日以内に <strong>abcj.flash.7@gmail.com</strong> よりご連絡いたします。<br />
+          迷惑メールフォルダもご確認ください。
+        </p>
+      </div>
     </div>
+
+    <!-- Google Forms の応答を受け取る非表示 iframe -->
+    <iframe name="hidden_iframe" style="display:none;"></iframe>
 
   </div>
 </section>
@@ -2447,14 +2468,13 @@
     setTimeout(() => toast.classList.remove('on'), 4200);
   }
 
-  // Counseling form submit
-  function handleCounselSubmit(e) {
-    e.preventDefault();
-    const toast = document.getElementById('toast');
-    toast.innerHTML = '✓ カウンセリングのお申し込みを受け付けました！1〜2営業日以内にご連絡します';
-    toast.classList.add('on');
-    e.target.reset();
-    setTimeout(() => toast.classList.remove('on'), 5000);
+  // Google Forms 送信後に完了メッセージを表示
+  function showCounselSuccess(form) {
+    setTimeout(() => {
+      form.style.display = 'none';
+      document.getElementById('counsel-success').style.display = 'block';
+      document.getElementById('counseling-form').scrollIntoView({ behavior: 'smooth' });
+    }, 600);
   }
 
   // Smooth scroll
