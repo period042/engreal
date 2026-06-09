@@ -1573,7 +1573,35 @@
       .email-form { flex-direction: column; }
       .hero-stats { gap: 32px; }
       .diff-table th, .diff-table td { padding: 12px 14px; font-size: 0.82rem; }
+      body { padding-bottom: 80px; }
+      .mobile-cta-bar {
+        display: flex;
+        position: fixed;
+        bottom: 0; left: 0; right: 0;
+        z-index: 150;
+        padding: 12px 20px;
+        padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+        background: rgba(14,14,26,0.97);
+        backdrop-filter: blur(12px);
+        border-top: 1px solid rgba(255,255,255,0.08);
+        box-shadow: 0 -4px 24px rgba(0,0,0,0.35);
+      }
+      .mobile-cta-bar a {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        padding: 14px 20px;
+        background: var(--grad-accent);
+        color: var(--white);
+        font-weight: 800;
+        font-size: 1rem;
+        border-radius: 12px;
+        text-decoration: none;
+        box-shadow: 0 4px 16px rgba(232,64,90,0.45);
+      }
     }
+    .mobile-cta-bar { display: none; }
   </style>
 </head>
 <body>
@@ -2656,6 +2684,10 @@
   </p>
   <p style="margin-top:12px;opacity:.4;font-size:.78rem;">© 2024 ENGREAL. All rights reserved.</p>
 </footer>
+
+<div class="mobile-cta-bar">
+  <a href="#counseling">無料カウンセリングの詳細</a>
+</div>
 
 <div class="toast" id="toast">✓ お申し込みを受け付けました！1〜2営業日以内にご連絡します</div>
 
