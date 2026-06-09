@@ -846,6 +846,148 @@
 
     .note { font-size: 0.8rem; color: rgba(255,255,255,0.35); margin-top: 14px; }
 
+    /* ─── AUTHOR STORY ─── */
+    .sec-truth { background: var(--light); }
+
+    .story-quote {
+      background: var(--grad-dark);
+      border-radius: 20px;
+      padding: 40px 48px;
+      margin-bottom: 56px;
+      position: relative;
+      overflow: hidden;
+    }
+    .story-quote::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 20% 50%, rgba(232,64,90,0.15), transparent 60%);
+    }
+    .q-mark {
+      font-size: 5rem;
+      font-weight: 900;
+      color: var(--accent);
+      line-height: 0.8;
+      margin-bottom: 16px;
+      opacity: 0.7;
+    }
+    .story-quote p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.85;
+      position: relative;
+      max-width: 720px;
+    }
+    .story-quote strong { color: var(--white); }
+    .q-attr {
+      display: block;
+      margin-top: 20px;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.4);
+      position: relative;
+    }
+
+    .story-journey {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-bottom: 56px;
+      position: relative;
+    }
+    .story-journey::before {
+      content: '';
+      position: absolute;
+      left: 40px;
+      top: 24px;
+      bottom: 24px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent), var(--teal));
+      opacity: 0.25;
+    }
+
+    .journey-step {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 24px;
+      padding: 28px 0;
+      border-bottom: 1px solid #e5e9f0;
+      align-items: flex-start;
+    }
+    .journey-step:last-child { border-bottom: none; }
+
+    .js-marker {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .js-age {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: var(--grad-dark);
+      color: var(--white);
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-align: center;
+      line-height: 1.3;
+      flex-shrink: 0;
+      box-shadow: 0 4px 14px rgba(14,14,26,0.2);
+    }
+    .journey-step.journey-result .js-marker.result .js-age {
+      background: var(--grad-accent);
+      box-shadow: 0 4px 18px rgba(232,64,90,0.35);
+    }
+
+    .js-content h4 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+      color: var(--primary);
+    }
+    .journey-step.journey-result .js-content h4 { color: var(--accent); }
+    .js-content p {
+      font-size: 0.92rem;
+      color: var(--gray);
+      line-height: 1.85;
+    }
+    .js-content strong { color: var(--primary); }
+
+    .author-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      background: var(--grad-dark);
+      border-radius: 20px;
+      padding: 40px;
+    }
+    .astat { text-align: center; }
+    .astat-num {
+      font-size: 2.4rem;
+      font-weight: 900;
+      color: var(--white);
+      display: block;
+      line-height: 1.1;
+    }
+    .astat-num small { font-size: 1rem; color: var(--accent); }
+    .astat-label {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.45);
+      margin-top: 6px;
+      display: block;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 768px) {
+      .author-stats { grid-template-columns: repeat(2, 1fr); gap: 20px; padding: 28px 20px; }
+      .story-quote { padding: 28px 24px; }
+      .story-quote p { font-size: 1rem; }
+      .story-journey::before { display: none; }
+      .journey-step { grid-template-columns: 56px 1fr; gap: 16px; }
+    }
+
     /* ─── APP ─── */
     .sec-app { background: var(--primary); }
     .sec-app .ttl { color: var(--white); }
@@ -1642,61 +1784,128 @@
 <!-- ─── TRUTH / AUTHOR ─── -->
 <section class="sec-truth" id="author">
   <div class="container">
-    <div class="truth-inner">
-      <div class="truth-visual fi">
-        <div class="truth-card-big">
-          <div class="q">"</div>
-          <h3>
-            「本当に効果があったもの」だけを、
-            正直にお伝えします。
-          </h3>
-          <p>
-            20以上のコーチングサービス・英会話・教材を自腹で体験してきました。
-            お金と時間を大量に費やした分、何が効いて何が無駄だったか、
-            誰より正直に言える立場にあると思っています。
-          </p>
-          <div class="truth-float">
-            スポンサーなし。<br />実体験のみで語ります。
+
+    <div class="author-header fi" style="text-align:center;margin-bottom:64px;">
+      <span class="label" style="display:block;text-align:center;">About the Founder</span>
+      <h2 class="ttl" style="text-align:center;">30歳、BE動詞から始めた私が<br />ENGREALを作る理由</h2>
+      <p class="sub" style="margin:0 auto;">
+        英語学習の成功体験を語るのは簡単です。でも私は失敗だらけでした。
+        だからこそ、同じ苦労をしている方の気持ちが、誰よりわかります。
+      </p>
+    </div>
+
+    <!-- Story timeline -->
+    <div class="author-story fi">
+      <div class="story-quote">
+        <div class="q-mark">"</div>
+        <p>
+          30歳のとき、外資系企業への転職が決まりました。
+          喜びと同時に、英語ができないという現実が突きつけられました。
+          中学で習ったはずの文法さえ頭に残っておらず、
+          <strong>「am, is, are」のBE動詞から、もう一度やり直した</strong>のが私のスタートラインです。
+        </p>
+        <span class="q-attr">— ENGREAL 筆者</span>
+      </div>
+
+      <div class="story-journey">
+        <div class="journey-step fi fi-d1">
+          <div class="js-marker">
+            <span class="js-age">30歳</span>
+          </div>
+          <div class="js-content">
+            <h4>転機：外資系転職と英語ゼロからの出発</h4>
+            <p>
+              外資系企業への転職をきっかけに英語学習を決意。しかし現実は厳しく、
+              中学英語の教科書を買い直し、BE動詞・基本文法から徹底的に叩き込むことから始めました。
+              恥ずかしさよりも、「このままでは仕事にならない」という焦りの方が強かった。
+            </p>
+          </div>
+        </div>
+
+        <div class="journey-step fi fi-d2">
+          <div class="js-marker">
+            <span class="js-age">試行①</span>
+          </div>
+          <div class="js-content">
+            <h4>コーチングサービスへの投資と失望</h4>
+            <p>
+              「プロに任せれば早い」と信じ、複数のコーチングサービスに数十万円を投資しました。
+              しかし待っていたのは、誰にでも同じ画一的なカリキュラム。
+              担当者は熱心でも、サービスの設計自体が個人に寄り添えない構造になっていると気づきました。
+            </p>
+          </div>
+        </div>
+
+        <div class="journey-step fi fi-d1">
+          <div class="js-marker">
+            <span class="js-age">試行②</span>
+          </div>
+          <div class="js-content">
+            <h4>通学・オンライン英会話を10以上渡り歩く</h4>
+            <p>
+              通学型スクール、フィリピン人講師のオンライン英会話、ネイティブ講師のマンツーマン——
+              あらゆる形式を自腹で体験しました。費用・講師の質・継続しやすさ・実際の効果、
+              それぞれに大きな差があることを身をもって知りました。
+            </p>
+          </div>
+        </div>
+
+        <div class="journey-step fi fi-d2">
+          <div class="js-marker">
+            <span class="js-age">試行③</span>
+          </div>
+          <div class="js-content">
+            <h4>セブ島への短期留学で転換点を迎える</h4>
+            <p>
+              フィリピン・セブへの短期留学が大きな転換点になりました。
+              マンツーマンのレッスンを1日8時間受けられるコスパ最強の環境で、
+              「どんな学校を選ぶか」「留学前に何を準備するか」が成果を左右することを実感しました。
+            </p>
+          </div>
+        </div>
+
+        <div class="journey-step journey-result fi">
+          <div class="js-marker result">
+            <span class="js-age">結論</span>
+          </div>
+          <div class="js-content">
+            <h4>長期留学以外のすべてを試して、わかったこと</h4>
+            <p>
+              10年以上、コーチング・英会話・短期留学と、長期留学以外のほぼすべての手段を経験しました。
+              その結果たどり着いた答えはシンプルです——
+              <strong>「正しい方法で地道に続けること」と「それを支える仲間と仕組み」さえあれば、
+              誰でも英語力は伸びる。</strong>
+              この経験を、同じように悩む方のために活かしたいと思い、ENGREALを立ち上げました。
+            </p>
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="fi fi-d1">
-        <span class="label">About the Founder</span>
-        <h2 class="ttl">英語学習に10年以上を<br />費やした「当事者」が作る</h2>
-        <ul class="truth-list">
-          <li>
-            <span class="icon">🔍</span>
-            <div>
-              <strong>コーチングの内側を知っている</strong>
-              <span>複数のコーチングサービスを受講し、カリキュラムの実態・コストパフォーマンスを検証済み</span>
-            </div>
-          </li>
-          <li>
-            <span class="icon">🗣️</span>
-            <div>
-              <strong>英会話サービスを10以上比較</strong>
-              <span>フィリピン人・ネイティブ・日本人講師など、様々なスタイルを実際に体験して評価</span>
-            </div>
-          </li>
-          <li>
-            <span class="icon">✈️</span>
-            <div>
-              <strong>フィリピン短期留学も経験済み</strong>
-              <span>セブの語学学校を訪問・受講。おすすめ校と選び方を伝えられます</span>
-            </div>
-          </li>
-          <li>
-            <span class="icon">🤝</span>
-            <div>
-              <strong>英語学習者コミュニティの運営経験</strong>
-              <span>「一人では続かない」を解決するためのコミュニティ設計を実践してきました</span>
-            </div>
-          </li>
-        </ul>
-        <a href="#counseling" class="btn-primary">無料カウンセリングを申し込む →</a>
+    <!-- Experience summary -->
+    <div class="author-stats fi">
+      <div class="astat">
+        <span class="astat-num">30<small>歳</small></span>
+        <span class="astat-label">英語学習スタート年齢</span>
+      </div>
+      <div class="astat">
+        <span class="astat-num">10<small>年+</small></span>
+        <span class="astat-label">継続学習年数</span>
+      </div>
+      <div class="astat">
+        <span class="astat-num">20<small>以上</small></span>
+        <span class="astat-label">体験したサービス数</span>
+      </div>
+      <div class="astat">
+        <span class="astat-num">数十<small>万円</small></span>
+        <span class="astat-label">英語に費やした自己投資額</span>
       </div>
     </div>
+
+    <div style="text-align:center;margin-top:48px;" class="fi">
+      <a href="#counseling" class="btn-primary">この経験をあなたの学習に活かす →</a>
+    </div>
+
   </div>
 </section>
 
