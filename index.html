@@ -1539,24 +1539,6 @@
     .fi-d2 { transition-delay: 0.2s; }
     .fi-d3 { transition-delay: 0.3s; }
 
-    /* ─── TOAST ─── */
-    .toast {
-      position: fixed;
-      bottom: 32px; left: 50%;
-      transform: translateX(-50%) translateY(120px);
-      background: var(--primary);
-      color: var(--white);
-      padding: 14px 28px;
-      border-radius: 32px;
-      font-weight: 700;
-      font-size: 0.93rem;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-      z-index: 999;
-      transition: transform 0.4s cubic-bezier(.34,1.56,.64,1);
-      border-left: 4px solid var(--teal);
-    }
-    .toast.on { transform: translateX(-50%) translateY(0); }
-
     /* ─── MOBILE CTA BAR ─── */
     .mobile-cta-bar {
       display: flex;
@@ -1564,7 +1546,7 @@
       bottom: 0; left: 0; right: 0;
       z-index: 150;
       padding: 12px 20px;
-      padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+      padding-bottom: calc(16px + env(safe-area-inset-bottom, 20px));
       background: rgba(14,14,26,0.97);
       border-top: 1px solid rgba(255,255,255,0.08);
       box-shadow: 0 -4px 24px rgba(0,0,0,0.35);
@@ -2689,8 +2671,6 @@
   <a href="#counseling">無料カウンセリングの詳細</a>
 </div>
 
-<div class="toast" id="toast">✓ お申し込みを受け付けました！1〜2営業日以内にご連絡します</div>
-
 <script>
   // Scroll fade
   const io = new IntersectionObserver(entries => {
@@ -2702,15 +2682,6 @@
   function switchTab(idx) {
     document.querySelectorAll('.prob-tab').forEach((t, i) => t.classList.toggle('active', i === idx));
     document.querySelectorAll('.prob-panel').forEach((p, i) => p.classList.toggle('active', i === idx));
-  }
-
-  // Form submit
-  function handleSubmit(e) {
-    e.preventDefault();
-    document.getElementById('emailInput').value = '';
-    const toast = document.getElementById('toast');
-    toast.classList.add('on');
-    setTimeout(() => toast.classList.remove('on'), 4200);
   }
 
   // Google Forms 送信後に完了メッセージを表示
